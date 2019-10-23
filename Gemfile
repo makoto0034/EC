@@ -51,3 +51,10 @@ end
 gem 'tzinfo-data'
 
 gem 'stripe'
+
+gem 'devise'
+gem 'activeadmin'
+
+gem 'carrierwave'
+
+gem "jquery-rails"

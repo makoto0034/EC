@@ -1,0 +1,45 @@
+<div class="cart_show">
+  <div class="cart_content">
+    <%=form_tag(new_charge_path,method: :get )do%>
+      <h1>My Cart</h1>
+        <%if @sum == 0%>
+          <h2>カートは空です</h2>
+        <%else%>
+        <table class="cart_table">
+          <%@cart_items.each do |cart_item|%>
+            <tr>
+              <th>商品名</th>
+              <td><%=cart_item.product.name%></td>
+            </tr>
+            <tr>
+              <th>個数</th>
+              <td>
+                <select data-id=<%=cart_item.product.id%> class="cart_quantity" name="cart_quantity">
+                  <%for num in 1..10%>
+                    <%if num == cart_item.quantity%>
+                      <option selected value=<%=num%>><%=num%></option>
+                    <%else%>
+                      <option value=<%=num%>><%=num%></option>
+                    <%end%>
+                  <%end%>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th>小計</th>
+              <td><%=cart_item.product.price * cart_item.quantity%></td>
+            </tr>
+          <%end%>
+          <tr>
+            <th>合計</th>
+            <td id="cart_sum"><%=@sum%></td>
+          </tr>
+        </table>
+        <div class=total_payment>
+          <input type="submit"  value="注文する">
+        </div>
+        <%end%>
+    <%end%>
+  </div>
+</div>
+<%= javascript_pack_tag 'cart_sum', 'data-turbolinks-track': 'reload' %>

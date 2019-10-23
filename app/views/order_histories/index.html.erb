@@ -1,0 +1,29 @@
+<div class="order_histories_index">
+  <div class="order_histories_content">
+    <h1>注文履歴</h1>
+    <h2>注文詳細</h2>
+    <%@order_histories.each do |order_history|%>
+    <div class="order_histories_container">
+      <div class = "order_histories_header">
+        <ul>
+          <li><span>注文日：</span><%=order_history.created_at%></li>
+          <li><span>合計金額：￥</span><%=order_history.sum%></li>
+          <li><span>注文状態：</span><%=order_history.status%></li>
+        </ul>
+      </div>
+        <table class ="order_history_items_table">
+          <%order_history_items_finder(order_history.id).each do |order_history_item|%>
+            <tr>
+              <th>商品名</th>
+              <td><%=order_history_item.product.name%></td>
+            </tr>
+            <tr>
+              <th>個数</th>
+              <td><%=order_history_item.quantity%></td>
+            </tr>
+          <%end%>
+        </table>
+     </div>
+    <%end%>
+  </div>
+</div>

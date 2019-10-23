@@ -1,7 +1,26 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users
   root to:'home#index'
   get 'home/index'
-  post 'home/pay'
-  resources:charges
+  post 'charges/update', to: 'charges#update'
+  resources:products
+  resources :carts
+  resources :charges,only: %i(new create)
+  resources :order_histories
+  # resources :cart_items
+  # resources :products, only: %i(show)do
+  #   member do
+  #     resources :charges, only: %i(new create)
+  #   end
+  # end
+
+  resources :products,only: %i(show)do
+    member do
+      resources :cart_items, only: %i(create)
+    end
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

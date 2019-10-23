@@ -1,0 +1,54 @@
+<div class="product_show">
+    <div class="product_show_container">
+      <div class="detail_container" id ="image_container">
+        <%=image_tag @product.image.url%>
+      </div>
+      <div class="detail_container" id ="show_container">
+        <h1><%=@product.name%></h1>
+        <div class="product_detail">
+          <table>
+            <tr>
+              <th>価格</th>
+              <td><%=@product.price%></td>
+            </tr>
+            <tr>
+              <th>商品重量</th>
+              <td>399 g</td>
+            </tr>
+            <tr>
+              <th>発送重量</th>
+              <td>399 g</td>
+            </tr>
+            <tr>
+              <th>電池</th>
+              <td>電池 2 単3形 電池(付属)</td>
+            </tr>
+            <tr>
+              <th>メーカー型番</th>
+              <td>3020s-B</td>
+            </tr>
+            <tr>
+              <th>ASIN</th>
+              <td>B00ZHYV8QO</td>
+            </tr>
+            <tr>
+              <th>サイズ</th>
+              <td>約幅57×奥行48×高さ156mm</td>
+            </tr>
+          </table>
+          <div class="product_payment">
+            <div class="payment_container">
+              <%=form_tag(cart_items_path) do%>
+                <select class="product_count" name="product_count">
+                  <%for num in 1..10 do %>
+                    <option value=<%=num%>><%=num%></option>
+                  <%end%>
+                </select>
+                <input type="submit" value="カートに入れる">
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

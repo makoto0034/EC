@@ -13,13 +13,37 @@
  *= require_tree .
  *= require_self
  */
+table{
+  border-collapse: collapse;
+  border:solid 1px;
+}
 
- table,td{
-   border:solid 1px;
-   border-collapse:collapse;
- }
+.headerInner{
+  display: flex;
+  justify-content: space-around;
+}
 
- .product-img{
-   width:100px;
-   height:200px;
- }
+.header_title a:visited{
+  text-decoration: none;
+  color: #000;
+}
+
+.header_title a:link{
+  text-decoration: none;
+  color: #000;
+}
+
+.global_nav a:visited{
+  text-decoration: none;
+  color: #000;
+}
+
+.global_nav a:link{
+  text-decoration: none;
+  color: #000;
+}
+
+.global_nav ul li{
+  display: inline;
+  padding: 10px;
+}

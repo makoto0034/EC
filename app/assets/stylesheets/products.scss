@@ -1,0 +1,48 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.products_container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.products_container table,td{
+  border:solid 1px;
+  border-collapse:collapse;
+  font-size:20px;
+}
+
+.products_container table{
+  margin-top:100px;
+  table-layout: fixed;
+  width:100%;
+}
+
+.product-img{
+  width:100px;
+  height:200px;
+}
+
+
+.product_show_container .detail_container{
+  display: inline-block;
+  vertical-align: top;
+  margin:100px 0 0 100px;
+}
+
+.product_show_container{
+  width:100%;
+}
+
+.product_show_container table,th,td{
+  border:solid 1px;
+  border-collapse:collapse;
+}
+.product_payment{
+  text-align:center;
+}
+
+.payment_container{
+  display:inline-block;
+}
