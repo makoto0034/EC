@@ -51,12 +51,13 @@ class ChargesController < ApplicationController
     end
 
   def update
-    p "a"
     @cart = current_user.cart
     @cart_items = CartItem.where(cart_id:@cart.id)
-    @item = @cart_items.find(product_id:params[:produt_id])
-    @item.quantity = params[:product_count]
-    @item.save
+    @item = @cart_items.select{|ci| ci.product_id == params[:produt_id].to_i}.first
+    if @item
+      @item.quantity = params[:product_count]
+      @item.save
+    end
   end
 
   def params_int(model_params)

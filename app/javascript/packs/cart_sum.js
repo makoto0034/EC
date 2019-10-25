@@ -1,6 +1,6 @@
 $('select').change(function(e){
   console.log(e.target.dataset.id);
-  var product_count = $('option:selected').val();
+  var product_count = $(this).val();
   console.log(product_count);
   $.ajax({
     url:"charges/update",
@@ -14,4 +14,5 @@ $('select').change(function(e){
       product_count:product_count
     }
   });
+  location.reload();
 });
